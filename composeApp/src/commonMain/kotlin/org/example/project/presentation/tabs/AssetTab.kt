@@ -4,15 +4,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
+import wealthvault_mp_fe.composeapp.generated.resources.Res
+import wealthvault_mp_fe.composeapp.generated.resources.asset
 import org.jetbrains.compose.resources.painterResource
+
 object AssetTab : Tab {
 
     override val options: TabOptions
         @Composable
         get() = TabOptions(
-            index = 0u,
-            title = "Home",
-            icon = painterResource("icons/asset_icon.xml")
+            index = 1u,
+            title = "Asset",
+            icon = painterResource(Res.drawable.asset)
         )
 
     @Composable

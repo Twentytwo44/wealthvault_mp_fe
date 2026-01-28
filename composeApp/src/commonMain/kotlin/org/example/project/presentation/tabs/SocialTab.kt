@@ -1,26 +1,23 @@
 package org.example.project.presentation.tabs
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
+import wealthvault_mp_fe.composeapp.generated.resources.Res
+import wealthvault_mp_fe.composeapp.generated.resources.social
+import org.jetbrains.compose.resources.painterResource
 
 
 object SocialTab : Tab {
 
     override val options: TabOptions
         @Composable
-        get() {
-            val iconPainter = rememberVectorPainter(image = Icons.Default.Home)
-            return TabOptions(
-                index = 0u,
-                title = "Home",
-                icon = iconPainter
-            )
-        }
+        get() = TabOptions(
+            index = 3u,
+            title = "Social",
+            icon = painterResource(Res.drawable.social)
+        )
 
     @Composable
     override fun Content() {
