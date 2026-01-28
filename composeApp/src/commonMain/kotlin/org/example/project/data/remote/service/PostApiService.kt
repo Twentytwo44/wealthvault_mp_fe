@@ -7,11 +7,14 @@ import org.example.project.data.remote.dto.PostDto
 
 class PostService(private val client: HttpClient) {
 
-    // ประกาศ Endpoint ทั้งหมดที่นี่
     suspend fun fetchPosts(): List<PostDto> {
-        return client.get("https://jsonplaceholder.typicode.com/posts").body<List<PostDto>>()    }
+        // ✅ ตัด Domain ออก ใส่แค่ path ข้างหลัง
+        // Ktor จะเอาไปต่อกับ Global Link ให้เองอัตโนมัติครับ
+        return client.get("posts").body()
+    }
 
     suspend fun fetchPostById(id: Int): PostDto {
-        return client.get("https://jsonplaceholder.typicode.com/posts/$id").body()
+        // ✅ สั้นและสะอาด
+        return client.get("posts/$id").body()
     }
 }

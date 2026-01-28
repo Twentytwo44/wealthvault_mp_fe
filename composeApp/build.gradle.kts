@@ -7,7 +7,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     kotlin("plugin.serialization")
-    
+
 
 
 }
@@ -72,6 +72,7 @@ kotlin {
             implementation("cafe.adriel.voyager:voyager-tab-navigator:1.0.0")
             implementation("cafe.adriel.voyager:voyager-transitions:1.0.0")
 
+            implementation("io.ktor:ktor-client-logging:2.3.7")
 
 
         }

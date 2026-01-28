@@ -4,7 +4,6 @@ import io.ktor.client.call.body
 import io.ktor.client.request.get
 import org.example.project.data.remote.KtorClient
 import org.example.project.data.remote.dto.PostDto
-import org.example.project.data.remote.service.ApiService
 import org.example.project.domain.model.Post
 import org.example.project.domain.repository.PostRepository
 
