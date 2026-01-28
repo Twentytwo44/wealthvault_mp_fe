@@ -24,7 +24,7 @@ struct iOSApp: App {
             ComposeView()
                 .ignoresSafeArea()
         }
-    }
+    }   
 }
 
 struct ComposeView: UIViewControllerRepresentable {

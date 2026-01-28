@@ -7,7 +7,15 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     kotlin("plugin.serialization")
+    
 
+
+}
+
+compose {
+    resources {
+        publicResClass = true
+    }
 }
 
 kotlin {
@@ -37,6 +45,7 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
 
+
             // Networking
             implementation("io.ktor:ktor-client-core:2.3.7")
             implementation("io.ktor:ktor-client-content-negotiation:2.3.7")
@@ -52,7 +61,21 @@ kotlin {
 
             // ViewModel
             implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.0")
+
+//            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha10")
+
+            implementation(compose.materialIconsExtended)
+
+            implementation(compose.material)
+
+            implementation("cafe.adriel.voyager:voyager-navigator:1.0.0")
+            implementation("cafe.adriel.voyager:voyager-tab-navigator:1.0.0")
+            implementation("cafe.adriel.voyager:voyager-transitions:1.0.0")
+
+
+
         }
+
 
         androidMain.dependencies {
             implementation(compose.preview)

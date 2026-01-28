@@ -6,11 +6,11 @@ import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import org.example.project.presentation.features.posts.PostScreen
+import org.example.project.ui.MainScreen
 
 @Composable
 fun AppIOS() {
     AppRoot {
-        PostScreen()
+        MainScreen()
     }
 }

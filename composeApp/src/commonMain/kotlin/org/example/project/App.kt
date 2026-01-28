@@ -4,7 +4,7 @@ import androidx.compose.material3.MaterialTheme
 
 import androidx.compose.runtime.*
 
-import org.example.project.presentation.features.posts.PostScreen
+import org.example.project.ui.MainScreen
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinContext
 
@@ -12,7 +12,7 @@ import org.koin.compose.KoinContext
 fun App() {
     MaterialTheme {
         KoinContext {
-            PostScreen()
+            MainScreen()
         }
     }
 }
