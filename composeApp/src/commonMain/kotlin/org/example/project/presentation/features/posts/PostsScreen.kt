@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 
 import androidx.compose.runtime.Composable
@@ -16,26 +17,29 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import cafe.adriel.voyager.core.screen.Screen
 import io.ktor.websocket.Frame
 import org.koin.compose.koinInject
 
-
 import org.koin.compose.viewmodel.koinViewModel // ใช้ Koin สำหรับ Compose
 
-class TestScreen : Screen {
+@Composable
+fun PostScreen() {
 
-    @Composable
-    override fun Content() {
+    val viewModel: PostViewModel = koinInject()
 
-        val viewModel: PostViewModel = koinInject()
+    val state by viewModel.uiState.collectAsState(
+        initial = PostUiState.Loading
+    )
+    Scaffold (
 
-        val state by viewModel.uiState.collectAsState(
-            initial = PostUiState.Loading
-        )
+        containerColor = Color.Transparent
+    ) { innerPadding -> // 👈 รับค่า Padding มาด้วย (กันเนื้อหาจม)
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding), // ✅ ควรใส่ Padding ตรงนี้ เพื่อไม่ให้เนื้อหาโดน BottomBar/TopBar บัง
             contentAlignment = Alignment.Center
         ) {
             when (val uiState = state) {
@@ -54,5 +58,4 @@ class TestScreen : Screen {
             }
         }
     }
-
 }

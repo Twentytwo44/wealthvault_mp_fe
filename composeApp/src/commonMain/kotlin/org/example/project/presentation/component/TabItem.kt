@@ -1,19 +1,25 @@
 package org.example.project.presentation.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.DividerDefaults.color
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
@@ -25,24 +31,31 @@ import org.example.project.presentation.tabs.HomeTab
 import org.example.project.presentation.tabs.ProfileTab
 import org.example.project.presentation.tabs.SocialTab
 
+
 @Composable
 fun TabItem(tab: Tab) {
     val tabNavigator = LocalTabNavigator.current
 
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(56.dp)
-            .background(MaterialTheme.colorScheme.surface),
-        horizontalArrangement = Arrangement.SpaceEvenly,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        BottomBarItem(DebtTab, tabNavigator)
-        BottomBarItem(AssetTab, tabNavigator)
-        BottomBarItem(HomeTab, tabNavigator)
-        BottomBarItem(SocialTab, tabNavigator)
-        BottomBarItem(ProfileTab, tabNavigator)
+    Box(
 
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(100.dp)
+                .background(MaterialTheme.colorScheme.surface)
+                .align(Alignment.BottomEnd)
+                .clip(RoundedCornerShape(topStart = 18.dp, topEnd = 18.dp)),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            BottomBarItem(DebtTab, tabNavigator)
+            BottomBarItem(AssetTab, tabNavigator)
+            BottomBarItem(HomeTab, tabNavigator)
+            BottomBarItem(SocialTab, tabNavigator)
+            BottomBarItem(ProfileTab, tabNavigator)
+
+        }
     }
 }
 
@@ -56,8 +69,15 @@ fun BottomBarItem(
     Column(
         modifier = Modifier
             .clickable { tabNavigator.current = tab }
-            .padding(8.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .background(
+                color = if (selected)
+                    MaterialTheme.colorScheme.secondary
+                else
+                    MaterialTheme.colorScheme.surface,
+                shape = RoundedCornerShape(16.dp)
+            ).padding(horizontal = 13.dp, vertical = 7.dp)
+        ,
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         tab.options.icon?.let {
             Icon(

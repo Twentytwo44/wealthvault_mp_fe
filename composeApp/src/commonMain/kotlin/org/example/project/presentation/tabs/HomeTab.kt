@@ -4,6 +4,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
+import org.example.project.presentation.features.posts.PostScreen
 import wealthvault_mp_fe.composeapp.generated.resources.Res
 import wealthvault_mp_fe.composeapp.generated.resources.main
 import org.jetbrains.compose.resources.painterResource
@@ -21,6 +22,6 @@ object HomeTab : Tab {
 
     @Composable
     override fun Content() {
-        Text("Home Screen")
+        PostScreen()
     }
 }

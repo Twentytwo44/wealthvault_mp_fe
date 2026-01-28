@@ -11,6 +11,7 @@ import org.koin.compose.KoinContext
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
             KoinContext { // หรือ KoinApplication
                 App() // ฟังก์ชัน App หลักของคุณจาก shared module (ถ้ามี)
