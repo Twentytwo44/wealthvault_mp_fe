@@ -1,6 +1,5 @@
 package org.example.project.di
 
-import org.example.project.data.remote.KtorClient
 import org.example.project.data.remote.service.PostService
 import org.example.project.domain.repository.PostRepository
 import org.example.project.domain.usecase.GetPostsUseCase

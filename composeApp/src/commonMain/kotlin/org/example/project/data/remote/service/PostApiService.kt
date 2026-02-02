@@ -13,8 +13,5 @@ class PostService(private val client: HttpClient) {
         return client.get("posts").body()
     }
 
-    suspend fun fetchPostById(id: Int): PostDto {
-        // ✅ สั้นและสะอาด
-        return client.get("posts/$id").body()
-    }
+
 }
