@@ -15,7 +15,8 @@ import org.example.project.ui.MainScreen
 fun AppIOS() {
     AppRoot {
         AppTheme {
-            MainScreen()
+            Navigator(screen = LoginScreen())
+
 
         }
     }

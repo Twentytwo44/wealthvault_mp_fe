@@ -66,13 +66,15 @@ kotlin {
 
             implementation(compose.material)
 
-            implementation("cafe.adriel.voyager:voyager-navigator:1.0.0")
-            implementation("cafe.adriel.voyager:voyager-tab-navigator:1.0.0")
-            implementation("cafe.adriel.voyager:voyager-transitions:1.0.0")
+            val voyagerVersion = "1.0.0"
+            implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+            implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
+            implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
+            implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+            implementation("cafe.adriel.voyager:voyager-screenmodel:$voyagerVersion")
 
             implementation("io.ktor:ktor-client-logging:2.3.7")
 
-            implementation("cafe.adriel.voyager:voyager-koin:1.0.0")
 
 
         }
