@@ -62,8 +62,6 @@ kotlin {
             // ViewModel
             implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.0")
 
-//            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha10")
-
             implementation(compose.materialIconsExtended)
 
             implementation(compose.material)
@@ -73,6 +71,8 @@ kotlin {
             implementation("cafe.adriel.voyager:voyager-transitions:1.0.0")
 
             implementation("io.ktor:ktor-client-logging:2.3.7")
+
+            implementation("cafe.adriel.voyager:voyager-koin:1.0.0")
 
 
         }

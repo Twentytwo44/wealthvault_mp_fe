@@ -10,6 +10,7 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.logging.SIMPLE
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
+import org.example.project.data.remote.service.AuthService
 import org.koin.dsl.module
 import org.example.project.data.remote.service.PostService
 
@@ -42,4 +43,6 @@ val networkModule = module {
 
     // 2. สร้าง Service
     factory { PostService(get()) }
+
+    factory { AuthService(get()) }
 }
