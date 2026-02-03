@@ -1,5 +1,6 @@
 package org.example.project.di
 
+import org.example.project.data.local.TokenStore
 import org.example.project.data.remote.service.PostService
 import org.example.project.data.repository.AuthRepositoryImpl
 import org.example.project.domain.repository.PostRepository
@@ -14,6 +15,9 @@ import org.example.project.presentation.auth.login.LoginViewModel
 import org.koin.dsl.module
 
 val appModule = module {
+
+    single { TokenStore(get()) }
+
     single<PostRepository> { PostRepositoryImpl(get()) }
 
     // --- Domain Layer ---
@@ -25,7 +29,7 @@ val appModule = module {
     factory { LoginViewModel(get()) }
 
     // 👇 1. ต้องมี Repository (สำหรับ Login)
-    single<AuthRepository> { AuthRepositoryImpl(get()) }
+    single<AuthRepository> { AuthRepositoryImpl(get(),get()) }
 
     // 👇 2. ต้องมี UseCase (สำคัญมาก! อันนี้มักจะลืม)
     factory { LoginUseCase(get()) }

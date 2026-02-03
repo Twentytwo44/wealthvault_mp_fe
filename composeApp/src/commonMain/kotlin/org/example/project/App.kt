@@ -15,8 +15,8 @@ import org.koin.compose.KoinContext
 @Composable
 fun App() {
     AppTheme {
-        KoinContext {
-            Navigator(screen = LoginScreen())
-        }
+           Navigator(screen = LoginScreen())
+//            MainScreen()
+
     }
 }

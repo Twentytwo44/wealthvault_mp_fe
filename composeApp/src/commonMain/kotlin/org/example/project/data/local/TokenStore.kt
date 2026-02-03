@@ -1,25 +1,34 @@
 package org.example.project.data.local
 
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import com.liftric.kvault.KVault
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
-class TokenStore(private val kvault: KVault) {
+class TokenStore(private val dataStore: DataStore<Preferences>) {
 
     companion object {
-        private const val KEY_TOKEN = "access_token"
+        val KEY_TOKEN = stringPreferencesKey("auth_token")
     }
 
+    // อ่านค่า Token (Return เป็น Flow เพื่อให้ Reactive)
+    val authToken: Flow<String?> = dataStore.data
+        .map { preferences ->
+            preferences[KEY_TOKEN]
+        }
 
-    fun saveToken(token: String) {
-        kvault.set(KEY_TOKEN, token)
+    // บันทึกค่า Token
+    suspend fun saveToken(token: String) {
+        dataStore.edit { preferences ->
+            preferences[KEY_TOKEN] = token
+        }
     }
 
-
-    fun getToken(): String? {
-        return kvault.string(KEY_TOKEN)
-    }
-
-
-    fun clear() {
-        kvault.deleteObject(KEY_TOKEN)
+    // ลบค่า (Logout)
+    suspend fun clear() {
+        dataStore.edit { it.clear() }
     }
 }

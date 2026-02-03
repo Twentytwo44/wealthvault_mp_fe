@@ -30,7 +30,8 @@ val networkModule = module {
 
             // ✅ 1.2 ตั้ง Base URL
             defaultRequest {
-                url("https://jsonplaceholder.typicode.com/")
+//                url("https://jsonplaceholder.typicode.com/")
+                url("http://10.0.2.2:8080/api/")
             }
 
             // ✅ 1.3 (แนะนำ) ใส่ Log เพื่อดูว่ายิง API อะไรออกไปบ้าง

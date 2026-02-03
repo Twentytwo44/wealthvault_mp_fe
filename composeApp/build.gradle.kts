@@ -60,7 +60,7 @@ kotlin {
             implementation("com.liftric:kvault:1.12.0")
 
             // ViewModel
-            implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.0")
+//            implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.0")
 
             implementation(compose.materialIconsExtended)
 
@@ -75,6 +75,9 @@ kotlin {
 
             implementation("io.ktor:ktor-client-logging:2.3.7")
 
+            implementation("androidx.datastore:datastore-preferences:1.1.7")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+
 
 
         }
@@ -88,6 +91,9 @@ kotlin {
 
             implementation("io.ktor:ktor-client-android:2.3.7")
             implementation("io.insert-koin:koin-android:4.0.0")
+
+            implementation("androidx.datastore:datastore-preferences:1.1.7")
+
         }
         iosMain.dependencies {
             implementation("io.ktor:ktor-client-darwin:2.3.7")
